@@ -1,32 +1,50 @@
-# No Man's Sky Achievement Atlas
+# No Man's Sky — Achievement Atlas
 
-Interaktywny, polskojęzyczny tracker 27 osiągnięć Steam do *No Man's Sky*. Zawiera kosmiczne tło, animowane orbity, interfejs Liquid Glass, panel ukończonych osiągnięć, notatki, wyszukiwarkę i eksport/import postępu. Strona jest przygotowana także jako PWA do dodania do ekranu początkowego iPhone'a.
+Interaktywny, polskojęzyczny tracker osiągnięć (27) dla gry No Man's Sky.
 
-## Automatyczne publikowanie na GitHub Pages
+Aplikacja działa jako statyczna strona PWA (Progressive Web App) — z kosmicznym tłem, animowanymi orbitami, interfejsem "Liquid Glass", panelem ukończonych osiągnięć, miejscem na notatki i wyszukiwarką.
 
-Repozytorium docelowe: https://github.com/krissuu7/nms-achievement-atlas
+Live demo
 
-Workflow w `.github/workflows/pages.yml` publikuje zawartość repozytorium po każdym pushu do `main`. Jeżeli GitHub Pages nie zostało jeszcze włączone, najpierw ustaw **Settings → Pages → Build and deployment → Source → GitHub Actions**.
+- Strona (jeśli Pages jest włączone): https://krissuu7.github.io/nms-achievement-atlas/
 
-Po wgraniu plików:
-1. Otwórz repozytorium → **Actions** i sprawdź przebieg `Deploy Achievement Atlas to GitHub Pages`.
-2. Po sukcesie strona będzie dostępna pod adresem https://krissuu7.github.io/nms-achievement-atlas/.
-3. Jeśli GitHub poprosi o wybór źródła publikacji, przejdź do **Settings → Pages → Build and deployment → Source** i wybierz **GitHub Actions**.
+Funkcje
 
-## Dodanie jako aplikacji na iPhonie
+- Pełna lista 27 osiągnięć ze statusem ukończenia.
+- Lokalny zapis postępu i notatek w przeglądarce.
+- Eksport / import postępu w formacie JSON.
+- Działa offline dzięki service workerowi.
+- Możliwość dodania jako aplikacja na ekranie głównym (iPhone/Android).
 
-1. Otwórz https://krissuu7.github.io/nms-achievement-atlas/ w Safari.
-2. Wybierz **Udostępnij → Dodaj do ekranu początkowego**.
-3. Włącz **Otwórz jako aplikację internetową** i dodaj ikonę.
+Szybkie uruchomienie
 
-## Dane i tryb offline
+1. Otwórz `index.html` lokalnie w przeglądarce lub odwiedź stronę opublikowaną na GitHub Pages.
+2. (Opcjonalnie) Dodaj jako aplikację na telefonie: Udostępnij → "Dodaj do ekranu początkowego" (Safari/Chrome).
 
-Postęp i notatki są zapisywane lokalnie w przeglądarce/aplikacji. Zrób eksport JSON przed zmianą przeglądarki lub urządzenia. Service worker cache'uje pliki aplikacji i ikony Steam po ich pobraniu; pierwsze ładowanie zewnętrznych ikon wymaga internetu.
+Dane i prywatność
 
-## Pliki
+- Wszystkie dane (postęp, notatki) przechowywane są lokalnie w przeglądarce użytkownika — nie wysyłamy danych do zewnętrznych serwisów.
+- Przed zmianą urządzenia lub wyczyszczeniem pamięci przeglądarki wykonaj eksport JSON.
 
-- `index.html` — aplikacja ze wszystkimi 27 osiągnięciami.
+Publikacja (GitHub Pages)
+
+- W repo jest workflow `.github/workflows/pages.yml`, który publikuje zawartość repo przy pushu do `main`.
+- Jeśli GitHub Pages nie jest włączone, w ustawieniach repo przejdź do: Settings → Pages → Build and deployment → Source → GitHub Actions.
+- Uwaga: obecny workflow wysyła całe repo (`path: '.'`). Rozważ najpierw dodanie kroku build i wysyłanie tylko katalogu z wygenerowaną stroną (np. `public/` lub `dist/`).
+
+Pliki w repozytorium
+
+- `index.html` — główna aplikacja.
 - `manifest.webmanifest` — metadane PWA.
+- `service-worker.js` — obsługa offline.
 - `apple-touch-icon.png`, `icon-192.png`, `icon-512.png` — ikony aplikacji.
-- `service-worker.js` — cache offline.
 - `.github/workflows/pages.yml` — automatyczne wdrożenie na GitHub Pages.
+
+Chcesz, żebym:
+- zmienił workflow, żeby automatycznie włączał Pages (enablement: true) i/lub uploadował tylko katalog wynikowy?
+- dodał sekcję "Contributing" i szablony issue/pr?
+- dodał plik LICENSE (np. MIT)?
+
+Autor
+
+krissuu7 — https://github.com/krissuu7
