@@ -1,0 +1,27 @@
+{
+  "id": "./",
+  "name": "No Man’s Sky Achievement Atlas",
+  "short_name": "NMS Atlas",
+  "description": "Interaktywny plan na 100% osiągnięć No Man’s Sky.",
+  "lang": "pl-PL",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#070a17",
+  "theme_color": "#050712",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "./icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
