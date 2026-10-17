@@ -355,6 +355,7 @@ main{padding-bottom:calc(90px + var(--safe-bottom))}
 @media(prefers-reduced-motion:reduce){.home-screen-guide,.install-help-dialog{transition:none!important;animation:none!important}}
 
 </style>
+  <link rel="stylesheet" href="./account-sync.css">
 </head>
 <body>
 <canvas id="starfield" aria-hidden="true"></canvas>
@@ -675,5 +676,6 @@ function updateScroll(){const y=Math.min(window.scrollY,120);document.documentEl
 })();
 renderList();updateStats();setNotesVisible(state.notesVisible,false);
 </script>
+  <script src="./account-sync.js"></script>
 </body>
 </html>

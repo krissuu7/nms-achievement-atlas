@@ -1,0 +1,61 @@
+/* Account UI — liquid-glass styling matching Achievement Atlas. */
+.atlas-account-trigger{position:relative;white-space:nowrap}
+.atlas-account-trigger.is-signed-in{border-color:rgba(111,235,190,.35);box-shadow:inset 0 1px 0 #ffffff18,0 0 20px rgba(91,240,190,.06)}
+.atlas-account-trigger.is-signed-in:after{content:"";width:6px;height:6px;border-radius:50%;background:#78efc1;box-shadow:0 0 12px #78efc1;position:absolute;right:7px;top:6px}
+.atlas-account-overlay{position:fixed;inset:0;z-index:100;display:grid;place-items:center;padding:20px;padding-top:max(20px,env(safe-area-inset-top));padding-bottom:max(20px,env(safe-area-inset-bottom));opacity:0;visibility:hidden;pointer-events:none;transition:opacity .32s,visibility .32s;isolation:isolate}
+.atlas-account-overlay.open{opacity:1;visibility:visible;pointer-events:auto}
+.atlas-account-backdrop{position:absolute;inset:0;width:100%;height:100%;border:0;background:rgba(1,3,14,.7);backdrop-filter:blur(16px) saturate(130%);-webkit-backdrop-filter:blur(16px) saturate(130%);opacity:0;transition:opacity .38s}
+.atlas-account-overlay.open .atlas-account-backdrop{opacity:1}
+.atlas-account-dialog{position:relative;width:min(510px,100%);max-height:calc(100dvh - 40px - env(safe-area-inset-top) - env(safe-area-inset-bottom));overflow:auto;border:1px solid rgba(226,238,255,.2);border-radius:28px;color:#f4f6ff;background:linear-gradient(140deg,rgba(30,39,73,.89),rgba(8,13,32,.88) 60%,rgba(20,29,57,.86));backdrop-filter:blur(42px) saturate(190%) contrast(112%);-webkit-backdrop-filter:blur(42px) saturate(190%) contrast(112%);box-shadow:inset 0 1px 0 rgba(255,255,255,.22),inset 0 -1px 0 rgba(143,184,255,.1),0 38px 120px rgba(0,0,0,.6),0 0 80px rgba(126,111,255,.12);transform:translateY(25px) scale(.965);opacity:0;transition:transform .42s cubic-bezier(.2,.8,.2,1),opacity .28s;overscroll-behavior:contain}
+.atlas-account-overlay.open .atlas-account-dialog{transform:translateY(0) scale(1);opacity:1}
+.atlas-account-head{display:flex;justify-content:space-between;align-items:flex-start;gap:18px;padding:25px 25px 20px;border-bottom:1px solid rgba(255,255,255,.095);background:linear-gradient(125deg,rgba(255,255,255,.065),transparent 60%)}
+.atlas-account-eyebrow{font-size:9px;letter-spacing:.16em;color:#a8eaf5;font-weight:750}
+.atlas-account-head h2{font-size:27px;line-height:1.1;letter-spacing:-.05em;margin:9px 0 7px}
+.atlas-account-head p{margin:0;color:#aeb9d7;font-size:12px;line-height:1.6}
+.atlas-account-content{padding:22px 25px 24px}
+.atlas-account-tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:5px;padding:5px;border:1px solid rgba(255,255,255,.1);border-radius:15px;background:rgba(0,0,0,.13);margin-bottom:20px}
+.atlas-account-tabs button{border:0;border-radius:10px;padding:10px 5px;background:transparent;color:#9faacb;font-size:11px;font-weight:750;transition:background .22s,color .22s,box-shadow .22s}
+.atlas-account-tabs button.active{color:#f5f7ff;background:linear-gradient(135deg,rgba(174,166,255,.25),rgba(120,221,255,.1));box-shadow:inset 0 1px 0 rgba(255,255,255,.14),0 2px 12px #0002}
+.atlas-account-form{display:grid;gap:14px;animation:atlasFormIn .28s ease both}
+@keyframes atlasFormIn{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
+.atlas-account-form[hidden],.atlas-account-content [hidden]{display:none!important}
+.atlas-account-form label,.atlas-recovery-panel label{display:grid;gap:7px;color:#dbe3fb;font-size:11px;font-weight:680}
+.atlas-account-form input,.atlas-recovery-panel input{width:100%;min-height:45px;border-radius:13px;border:1px solid rgba(221,233,255,.13);background:rgba(1,6,20,.36);color:#fff;padding:0 13px;outline:none;transition:border-color .22s,background .22s,box-shadow .22s}
+.atlas-account-form input::placeholder{color:#687593}
+.atlas-account-form input:focus,.atlas-recovery-panel input:focus{border-color:rgba(143,225,255,.6);background:rgba(4,9,25,.55);box-shadow:0 0 0 3px rgba(122,211,255,.08),inset 0 1px 0 #ffffff0c}
+.atlas-account-form label small{color:#7e8bab;font-weight:450;font-size:10px}
+.atlas-primary-button,.atlas-secondary-button{display:inline-flex;justify-content:center;align-items:center;gap:9px;min-height:44px;border-radius:13px;padding:10px 14px;font-size:12px;font-weight:760;transition:transform .2s,filter .2s,background .2s,border-color .2s;touch-action:manipulation}
+.atlas-primary-button{width:100%;border:1px solid rgba(208,224,255,.24);color:#f9faff;background:linear-gradient(110deg,rgba(135,121,255,.42),rgba(73,201,229,.22)),rgba(255,255,255,.06);box-shadow:inset 0 1px 0 rgba(255,255,255,.17),0 8px 26px rgba(0,0,0,.17)}
+.atlas-primary-button:hover{filter:brightness(1.12);transform:translateY(-1px)}
+.atlas-primary-button:disabled,.atlas-secondary-button:disabled{opacity:.55;cursor:wait;transform:none}
+.atlas-secondary-button{border:1px solid rgba(221,233,255,.16);background:rgba(255,255,255,.045);color:#cbd6f2}
+.atlas-secondary-button:hover{border-color:rgba(211,230,255,.32);background:rgba(255,255,255,.08)}
+.atlas-account-footnote{font-size:10px!important;line-height:1.65!important;color:#8592b2!important;margin:1px 0 0}
+.atlas-account-callout{padding:12px 13px;border-radius:13px;border:1px solid rgba(168,171,255,.14);background:rgba(137,128,255,.07);color:#aeb9dd;font-size:11px;line-height:1.65;margin-bottom:3px}
+.atlas-account-callout.success{border-color:rgba(114,237,190,.18);background:rgba(96,219,168,.07);color:#b8f7de}
+.atlas-logged-view{display:grid;gap:14px;animation:atlasFormIn .28s ease both}
+.atlas-account-idbox{display:grid;gap:10px;padding:16px;border:1px solid rgba(227,237,255,.12);border-radius:16px;background:rgba(0,0,0,.14)}
+.atlas-account-idbox>span{font-size:9px;letter-spacing:.15em;color:#8f9cbd}
+.atlas-account-idbox strong{font-size:19px;letter-spacing:.035em;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+.atlas-account-idbox .atlas-secondary-button{justify-self:start;min-height:35px;padding:7px 10px;font-size:10px}
+.atlas-cloud-state{display:flex;align-items:center;gap:9px;color:#b1bfdc;font-size:11px;line-height:1.5;min-height:20px}
+.atlas-cloud-state span:last-child[data-mode="error"]{color:#ffb1b9}
+.atlas-cloud-state span:last-child[data-mode="offline"]{color:#ffd59b}
+.atlas-cloud-state span:last-child[data-mode="cloud"]{color:#9af0cd}
+.atlas-cloud-pulse,.atlas-online-dot{width:7px;height:7px;flex:0 0 7px;border-radius:50%;background:#88ebc4;box-shadow:0 0 12px #88ebc477;animation:atlasPulse 2.4s infinite}
+.atlas-cloud-state [data-mode="error"]+.atlas-cloud-pulse{background:#ff8392}
+@keyframes atlasPulse{50%{opacity:.52;box-shadow:0 0 3px #88ebc422}}
+.atlas-logout-button{width:100%;color:#ffb9c3;border-color:rgba(255,131,147,.18);background:rgba(255,88,110,.04)}
+.atlas-account-message{margin-top:14px;padding:12px 13px;border-radius:13px;border:1px solid rgba(188,205,255,.15);background:rgba(255,255,255,.035);font-size:11px;line-height:1.7;color:#d1dbf4;overflow-wrap:anywhere}
+.atlas-account-message.success{border-color:rgba(109,233,185,.22);background:rgba(99,220,169,.065);color:#bdf8df}
+.atlas-account-message.error{border-color:rgba(255,128,147,.23);background:rgba(255,92,115,.065);color:#ffc0c7}
+.atlas-account-local-note{margin-top:17px;text-align:center;font-size:9px;line-height:1.6;color:#7785a7}
+.atlas-recovery-panel{display:grid;gap:13px;animation:atlasFormIn .28s ease both}
+.atlas-recovery-icon{display:grid;place-items:center;margin:auto;width:52px;height:52px;border-radius:17px;background:linear-gradient(145deg,rgba(172,162,255,.28),rgba(93,224,241,.09));border:1px solid rgba(220,232,255,.2);font-size:22px;color:#dcf8ff;box-shadow:0 0 32px rgba(117,139,255,.12)}
+.atlas-recovery-panel h3{font-size:21px;text-align:center;letter-spacing:-.04em;margin:0}
+.atlas-recovery-panel>p{font-size:11px;line-height:1.7;color:#aeb9d7;margin:0;text-align:center}
+.atlas-code-row{display:flex;align-items:center;gap:8px;padding:8px;border:1px solid rgba(219,234,255,.12);border-radius:12px;background:rgba(0,0,0,.18);min-width:0}
+.atlas-code-row code{flex:1;min-width:0;overflow-wrap:anywhere;color:#eaf3ff;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:11px;line-height:1.6;user-select:all}
+.atlas-code-row .atlas-secondary-button{flex:0 0 auto;min-height:34px;padding:6px 9px;font-size:10px}
+@media(max-width:600px){.atlas-account-overlay{padding:10px;padding-top:max(10px,env(safe-area-inset-top));padding-bottom:max(10px,env(safe-area-inset-bottom));align-items:center}.atlas-account-dialog{border-radius:23px;max-height:calc(100dvh - 20px - env(safe-area-inset-top) - env(safe-area-inset-bottom))}.atlas-account-head{padding:20px 18px 16px}.atlas-account-head h2{font-size:23px}.atlas-account-content{padding:17px 18px 20px}.atlas-account-tabs button{font-size:10px}.atlas-account-trigger{padding-inline:10px;min-width:40px}}
+@media(prefers-reduced-motion:reduce){.atlas-account-overlay,.atlas-account-dialog,.atlas-account-backdrop,.atlas-account-form,.atlas-logged-view,.atlas-recovery-panel{transition:none!important;animation:none!important}}

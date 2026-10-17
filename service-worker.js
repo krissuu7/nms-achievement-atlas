@@ -1,6 +1,6 @@
-const CACHE_NAME = 'nms-atlas-app-v2';
+const CACHE_NAME = 'nms-atlas-app-v3';
 const IMAGE_CACHE = 'nms-atlas-steam-icons-v1';
-const APP_SHELL = ['./', './index.html', './manifest.webmanifest', './apple-touch-icon.png', './icon-192.png', './icon-512.png'];
+const APP_SHELL = ['./', './index.html', './manifest.webmanifest', './apple-touch-icon.png', './icon-192.png', './icon-512.png', './account-sync.css', './account-sync.js'];
 self.addEventListener('install', event => {
   event.waitUntil(caches.open(CACHE_NAME).then(cache => cache.addAll(APP_SHELL)).then(() => self.skipWaiting()));
 });
